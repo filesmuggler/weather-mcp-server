@@ -3,11 +3,12 @@ runtime: python311
 
 build:
   commands:
-    build:
-      - echo "upgrading pip3..."
-      - pip3 install --upgrade pip
-      - echo "installing requirements..."
-      - pip3 install -r requirements.txt
+    - echo "Upgrading pip..."
+    - pip3 install --upgrade pip
+    - echo "Installing dependencies..."
+    - pip3 install -r requirements.txt
+    - echo "Verifying httpx installation..."
+    - python3 -m pip show httpx || echo "httpx not found!"
 
 run:
   command: python3 main.py
