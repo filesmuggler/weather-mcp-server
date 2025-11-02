@@ -6,6 +6,6 @@ build:
       - echo "Installing dependencies..."
       - pip3 install --target=/app/packages -r requirements.txt
 run:
-  command: sh -c "cd /app/weather && PYTHONPATH=/app/weather/packages:$PYTHONPATH python3 -c 'import sys; print(sys.path)' && python3 main.py"
+  command: sh -c "cd /app/weather && PYTHONPATH=/app/weather/packages:$PYTHONPATH python3 main.py"
   network:
     port: 8000
