@@ -3,8 +3,9 @@ runtime: python311
 
 build:
   commands:
-    - pip3 install --upgrade pip
-    - pip3 install -r requirements.txt
+    build:
+      - pip3 install --upgrade pip
+      - pip3 install -r requirements.txt
 
 run:
   command: python3 main.py
