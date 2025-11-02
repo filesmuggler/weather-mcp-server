@@ -1,17 +1,11 @@
 version: 1.0
 runtime: python311
-
 build:
   commands:
     build:
-      - echo "Upgrading pip..."
-      - pip3 install --upgrade pip
       - echo "Installing dependencies..."
-      - pip3 install -r requirements.txt
-      - echo "Verifying httpx installation..."
-      - python3 -m pip show httpx || echo "httpx not found!"
-
+      - pip3 install --target=/app/packages -r requirements.txt
 run:
-  command: python3 main.py
+  command: PYTHONPATH=/app/packages:$PYTHONPATH python3 main.py
   network:
     port: 8000
