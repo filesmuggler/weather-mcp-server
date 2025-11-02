@@ -1,11 +1,11 @@
 version: 1.0
-runtime: python3.11
+runtime: python311
 
 build:
   commands:
     build:
       - echo "Installing dependencies..."
-      - pip install --target=/app/weather/packages -r requirements.txt
+      - pip3 install --target=/app/weather/packages -r requirements.txt
 
 run:
   command: python3 /app/weather/main.py
