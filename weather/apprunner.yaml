@@ -1,11 +1,16 @@
 version: 1.0
-runtime: python311
+runtime: python3.11
+
 build:
   commands:
     build:
       - echo "Installing dependencies..."
-      - pip3 install --target=/app/packages -r requirements.txt
+      - pip install --target=/app/weather/packages -r requirements.txt
+
 run:
-  command: cd /app/weather && PYTHONPATH=/app/weather/packages:$PYTHONPATH python3 main.py
+  command: python3 /app/weather/main.py
+  env:
+    - name: PYTHONPATH
+      value: "/app/weather/packages:$PYTHONPATH"
   network:
     port: 8000
