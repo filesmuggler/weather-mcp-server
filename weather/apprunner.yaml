@@ -6,6 +6,6 @@ build:
       - echo "Installing dependencies..."
       - pip3 install --target=/app/packages -r requirements.txt
 run:
-  command:  sh -c "PYTHONPATH=/app/packages:$PYTHONPATH python3 main.py"
+  command:  python3 main.py
   network:
     port: 8000
